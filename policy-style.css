@@ -1,0 +1,43 @@
+:root {
+  --first-color: #FBD501;
+  --second-color: #015AB9; }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  box-sizing: border-box;
+  text-decoration: none; }
+
+iframe {
+  margin: auto;
+  display: block; }
+
+.nav {
+  display: flex;
+  height: 3em;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("/images/uaukraineflag_111966.svg");
+  background-size: contain;
+  background-repeat: repeat-x; }
+  .nav a {
+    font-size: 1.2em;
+    padding: 0 10px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.5s; }
+  .nav a:link {
+    color: black; }
+  .nav a:visited {
+    color: black; }
+  .nav a:hover {
+    background-color: black;
+    color: white;
+    padding: 13px 10px;
+    border-radius: 0; }
+
+/*# sourceMappingURL=policy-style.css.map */
