@@ -1,154 +1,259 @@
-:root {
-    --first-line-color: #FDFDFD;
-    --second-line-color: #FAB1C9;
-    --third-line-color: #00A2E4;
-}
+$white: #FDFDFD;
+$pink: #FAB1C9;
+$blue: #00A2E4;
+$gray: #2B2D30;
 
 * {
-    background-color: var(--first-line-color);
     padding: 0;
     margin: 0;
     font-family: 'Poppins';
-}
-
-a:link {
-    color: black !important;
-}
-a:visited {
-    color: black !important;
-}
-
-div.header {
-    display: flex;
-    font-size: 1em;
-    width: 100%;
-    height: 750px;
     box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
+}
 
-    .header-main {
-        display: flex;
-        flex-direction: column;
-        width: 84%;
+a:link, a:visited {
+    text-decoration: none;
+    color: $white;
+}
+
+div.container {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: 1fr;
+
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    div.aside {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        background-color: $gray;
+        width: 100%;
         height: 100%;
-        justify-content: space-around;
+
+
+        div {
+            animation-name: anim-line-left;
+            animation-duration: 7s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+
+            @keyframes anim-line-left {
+                0% {
+                    background-color: $gray;
+                }
+
+                50% {
+                    background-color: $pink;
+                }
+
+                100% {
+                    background-color: $gray;
+                }
+            }
+        }
+
+        div:first-child {
+            animation-delay: 1s;
+        }
+
+        div:nth-child(even) {
+            animation-name: middle-anim-line-left;
+            animation-duration: 7s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-delay: 500ms;
+
+            @keyframes middle-anim-line-left {
+                0% {
+                    background-color: $gray;
+                }
+
+                50% {
+                    background-color: $blue;
+                }
+
+                100% {
+                    background-color: $gray;
+                }
+            }
+        }
+
+
+    }
+
+    div.aside-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        background-color: $gray;
+        width: 100%;
+        height: 100%;
+
+        div {
+            animation-name: anim-line-right;
+            animation-duration: 7s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+            @keyframes anim-line-right {
+                0% {
+                    background-color: $gray;
+                }
+
+                50% {
+                    background-color: $pink;
+                }
+
+                100% {
+                    background-color: $gray;
+                }
+            }
+        }
+
+        div:last-child {
+            animation-delay: 1s;
+        }
+
+        div:nth-child(even) {
+            animation-name: middle-anim-line-right;
+            animation-duration: 7s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-delay: 500ms;
+
+            @keyframes middle-anim-line-right {
+                0% {
+                    background-color: $gray;
+                }
+
+                50% {
+                    background-color: $blue;
+                }
+
+                100% {
+                    background-color: $gray;
+                }
+            }
+        }
+    }
+
+    div.main {
+        pointer-events: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         align-items: center;
+        justify-items: center;
+
         background-image: url("images/socks.jpeg");
         background-size: cover;
-        box-sizing: border-box;
 
+        transition: 3s;
 
-        .header-text {
-            color: black;
-            font-size: 2.8em;
-            font-weight: bold;
-            background-color: var(--first-line-color);
-            opacity: 0.9;
-            white-space: nowrap;
-            padding: 0.8em 0.5em;
-            text-align: center;
-            border-radius: 0.5em;
-            transition: 0.5s;
+        .link {
+            pointer-events: auto;
+            opacity: 0.97;
+            div {
+                display: grid;
+                width: 45vh;
+                height: 5vh;
+                background-color: $gray;
+                font-size: 1.5em;
+                font-weight: bold;
+
+                a {
+                    margin: auto;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .top {
+                border-top-left-radius: 5vh;
+                border-top-right-radius: 5vh;
+            }
+
+            .bottom {
+                border-bottom-left-radius: 5vh;
+                border-bottom-right-radius: 5vh;
+            }
         }
 
-        .header-text:hover {
-            font-size: 2.9em;
-            background-color: #FAB1C9;
+        .link:hover {
             opacity: 1;
-        }
+            .top {
+                animation-name: top-link;
+                animation-duration: 1.2s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
 
-        .first-link {
-            font-size: 2em;
-            font-weight: bold;
-            white-space: nowrap;
-            padding: 0.8em 0.5em;
-            text-align: center;
-            border-radius: 0.5em;
-            text-decoration: none;
-            opacity: 0.9;
-            background: var(--first-line-color);
-            display: inline-block;
-            transition: 0.5s;
-        }
+                @keyframes top-link {
+                    0% {
+                        background-color: $gray;
+                    }
+                    100% {
+                        width: 45vh;
+                        margin: 1.5vh 0;
+                        background-color: $blue;
 
+                    }
+                }
+            }
 
-        .first-link:hover {
-            text-decoration: underline;
-            font-size: 2.2em;
-            background: var(--third-line-color);
-        }
+            .center {
+                animation-name: center-link;
+                animation-duration: 1.2s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
 
+                @keyframes center-link {
+                    0% {
+                        background-color: $gray;
+                    }
+                    100% {
+                        background-color: $pink;
+                        width: 70vh;
+                    }
+                }
+            }
 
-        .second-link {
-            font-size: 2em;
-            font-weight: bold;
-            white-space: nowrap;
-            padding: 0.8em 0.5em;
-            text-align: center;
-            border-radius: 0.5em;
-            text-decoration: none;
-            opacity: 0.9;
-            background: var(--first-line-color);
-            display: inline-block;
-            transition: 0.5s;
-        }
+            .bottom {
+                animation-name: bottom-link;
+                animation-duration: 1.2s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
 
-        .second-link:hover {
-            text-decoration: underline;
-            font-size: 2.2em;
-            background: var(--second-line-color);
-        }
-
-
-    }
-
-
-
-    .header-side {
-        display: grid;
-        grid-auto-rows: 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 16%;
-        height: 100%;
-
-        div {
-            background-color: var(--second-line-color);
-            transition: 0.5s;
-        }
-
-        div:nth-child(even) {
-            background-color: var(--third-line-color);
-            transition: 0.5s;
+                @keyframes bottom-link {
+                    0% {
+                        background-color: $gray;
+                    }
+                    100% {
+                        width: 45vh;
+                        margin: 1.5vh 0;
+                        transform: translateX(55.5%);
+                        background-color: $blue;
+                    }
+                }
+            }
         }
     }
-
-    .header-side:hover {
-
-        div {
-            background-color: var(--third-line-color);
-        }
-
-        div:nth-child(even) {
-            background-color: var(--second-line-color);
-        }
+    div.main:hover {
+        box-shadow: inset 0 0 5em 1em #000;
     }
 }
 
-.nav {
-    height: 3em;
-    background-color: #00A2E4;
 
-    a {
-        display: block;
-        text-align: center;
-        padding: 15px 17px;
-        text-decoration: none;
-        width: 100%;
 
-    }
-
-}
 
 
 
